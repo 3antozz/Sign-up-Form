@@ -52,6 +52,7 @@
     --odin-text-size: clamp(1rem, 1rem + 5vw, 9rem);
     --credit-text-color: white;
     --left-margin: 6rem;
+    --gap: 5rem;
   }
 
   .left-container {
@@ -89,7 +90,7 @@
   .img-credits {
     color: var(--credit-text-color);
     margin-top: auto;
-    margin-bottom: 0.3rem;
+    /* margin-bottom: 0.1rem; */
     font-size: min(0.8rem, 2vw);
   }
 
@@ -98,8 +99,10 @@
   }
 
   h2 {
-    margin-left: var(--left-margin);
+    margin-left: calc(10rem + var(--left-margin) + calc(var(--gap)/2));
     margin-bottom: 0.3rem;
+    font-size: 1.8rem;
+    /* color: #4D2184 ; */
   }
 
   h2 + p {
@@ -121,7 +124,7 @@
 
   div[class$="row"]{
     display: flex;
-    gap: 5rem;
+    gap: var(--gap);
     margin-left: var(--left-margin);
   }
 
@@ -148,22 +151,38 @@
     border-radius: 0.5rem;
     color: var(--credit-text-color);
     background-color: #111827;
-
   }
 
+  button:hover {
+    background-color: #293653;
+    box-shadow: 0px 2px 5px 0 #000000;
+  }
+
+
   .description {
+    position: relative;
     font-family: Helvetica, Arial , sans-serif;
     width: 60ch;
     margin-left: var(--left-margin);
     font-weight: 700;
     font-size: 1.3rem;
     margin-top: 4.5rem;
-    margin-bottom: 1rem;
+  }
+
+  .description::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 45%;
+    height: 0.2rem;
+    background-color: #111827;
+    left: 18%;
+    bottom: -10%;
   }
 
   fieldset {
     border: 0;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     padding-bottom: 1rem;
   }
 
@@ -236,6 +255,15 @@
   input::placeholder {
     color: rgba(128, 128, 128, 0.43);
   }
+
+  input:hover::placeholder {
+    font-size: 1.3rem;
+  }
+
+  input:hover {
+    background-color: #f7bc4e;
+  }
+
 
   input:not(:placeholder-shown):valid {
     border: solid #2e0aff !important;
