@@ -11,6 +11,24 @@
 
 }
 
+@font-face {
+  font-family: 'capture_itregular';
+  src: url('./Fonts/capture_it-webfont.woff2') format('woff2'),
+       url('./Fonts/capture_it-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+@font-face {
+  font-family: 'gunplayregular';
+  src: url('./Fonts/gunplay_rg-webfont.woff2') format('woff2'),
+       url('./Fonts/gunplay_rg-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
 
 
 /*
@@ -99,9 +117,11 @@
   }
 
   h2 {
+    font-family: 'capture_itregular', 'Courier New', Courier, sans-serif;
     margin-left: calc(10rem + var(--left-margin) + calc(var(--gap)/2));
     margin-bottom: 0.3rem;
     font-size: 1.8rem;
+    font-weight: 400;
     /* color: #4D2184 ; */
   }
 
@@ -161,11 +181,11 @@
 
   .description {
     position: relative;
-    font-family: Helvetica, Arial , sans-serif;
-    width: 60ch;
+    font-family: 'gunplayregular', 'Courier New', Courier, sans-serif;
+    width: 45ch;
     margin-left: var(--left-margin);
-    font-weight: 700;
-    font-size: 1.3rem;
+    /* font-weight: 700; */
+    font-size: 1.5rem;
     margin-top: 4.5rem;
   }
 
@@ -177,7 +197,7 @@
     height: 0.2rem;
     background-color: #111827;
     left: 18%;
-    bottom: -10%;
+    bottom: -7%;
   }
 
   fieldset {
