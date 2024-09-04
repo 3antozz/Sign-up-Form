@@ -51,6 +51,7 @@
   :root {
     --odin-text-size: clamp(1rem, 1rem + 5vw, 9rem);
     --credit-text-color: white;
+    --left-margin: 6rem;
   }
 
   .left-container {
@@ -97,12 +98,12 @@
   }
 
   h2 {
-    margin-left: 4rem;
+    margin-left: var(--left-margin);
     margin-bottom: 0.3rem;
   }
 
   h2 + p {
-    margin-left: 4rem;
+    margin-left: var(--left-margin);
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
   }
@@ -116,18 +117,22 @@
     display: flex;
     flex-direction: column;
     background-color: #ffa500;
-    /* background-color: #de9b35; */
   }
 
   div[class$="row"]{
     display: flex;
     gap: 5rem;
-    margin-left: 4rem;
+    margin-left: var(--left-margin);
   }
 
   div[class$="row"] div{
     margin-bottom: 1rem;
+    flex: 1;
+    max-width: 15rem;
   }
+
+
+
   label {
     display: block;
     font-size: 0.9rem;
@@ -136,9 +141,8 @@
 
   button {
     font-weight: 700;
-    margin-left: 4rem;
+    margin-left: var(--left-margin);
     width: 13rem;
-    margin-top: 0.8rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -150,7 +154,7 @@
   .description {
     font-family: Helvetica, Arial , sans-serif;
     width: 60ch;
-    margin-left: 4rem;
+    margin-left: var(--left-margin);
     font-weight: 700;
     font-size: 1.3rem;
     margin-top: 4.5rem;
@@ -160,13 +164,13 @@
   fieldset {
     border: 0;
     padding: 1.5rem 0;
-    /* box-shadow: inset 0px 2px 5px 0 #000000; */
-    /* background-color: #892be2; */
-    /* color: var(--credit-text-color); */
+    padding-bottom: 1rem;
   }
 
   button + div {
-    margin-left: 4rem;
+    margin-left: 2rem;
+    display: inline-block;
+    vertical-align: middle;
   }
 
   input {
@@ -175,11 +179,13 @@
     background-color: #ffa500;
     outline: none;
     border-radius: 5px;
+    height: 2.3rem;
+    width: 100%;
   }
 
   input:focus {
     border: solid #4D2184;
-    /* box-shadow: 0px 2px 5px 0 #000000; */
+    box-shadow: 0px 2px 5px 0 #000000;
   }
   
 
@@ -187,33 +193,85 @@
     border: solid rgb(255, 0, 0);
   }
 
-  input:focus:invalid {
-    box-shadow: 0px 2px 5px 0 #000000;
-  }
 
-  input[type="tel"]:invalid + div {
+  input[type="tel"]:invalid ~ div {
     position: relative;
   }
 
-  input[type="tel"]:invalid + div::before {
+  input[type="tel"]:invalid ~ div::before {
     position: absolute;
-    content: "** Numbers only";
+    content: "*Digits only! 8 minimum";
+    top: 3px;
     color: rgb(98, 3, 3);
     font-size: 1rem;
     margin: 0;
   }
 
-  input[type="email"]:invalid + div {
+  input[type="email"]:invalid ~ div {
     position: relative;
   }
 
-  input[type="email"]:invalid + div::before {
+  input[type="email"]:invalid ~ div::before {
     position: absolute;
-    content: "Please enter a valid Email";
+    content: "*Please enter a valid Email!";
+    top: 3px;
     color: rgb(98, 3, 3);
     font-size: 1rem;
     margin: 0;
   }
+
+  input[type="password"]:invalid ~ div {
+    position: relative;
+  }
+
+  input[type="password"]:invalid ~ div::before {
+    position: absolute;
+    content: "*5 characaters minimum!";
+    top: 3px;
+    color: rgb(98, 3, 3);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  input::placeholder {
+    color: rgba(128, 128, 128, 0.43);
+  }
+
+  input:not(:placeholder-shown):valid {
+    border: solid #2e0aff !important;
+  }
+
+
+  input:not(:placeholder-shown):valid ~ span {
+    position: relative;
+  }
+
+
+  input:not(:placeholder-shown):valid ~ span::after {
+    position: absolute;
+    content: "✔";
+    color: #2e0aff;
+    font-size: 1.5rem;
+    top: -8px;
+    left: 5px;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  input[type="text"]:invalid ~ div {
+    position: relative;
+  }
+
+  input[type="text"]:invalid ~ div::before {
+    position: absolute;
+    content: "*4 characters minimum!";
+    top: 3px;
+    color: rgb(98, 3, 3);
+    font-size: 1rem;
+    margin: 0;
+  }
+
 
 
 
